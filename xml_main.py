@@ -21,10 +21,10 @@ startYCoordinateForWY = startYCoordinateForXZ + spaceBetweenTwoPad
 wireIndex = 0
 signalIndex = 0
 def main():	
-	signals = readWireFile()
+	signals = readInputFile()
 	for signal in signals:
-		points = splitWireIntoPoints(signals)
-		addsignal(points,signalIndex,wireindex)
+		points = splitWireIntoPoints(signal)
+		addsignal(points)
 	tree.write('output.brd')
 
 def readInputFile():
@@ -35,9 +35,13 @@ def readInputFile():
 	return signals		
 def splitWireIntoPoints(wire):
 	points = wire.split(',')
-	points[0] = splitAlphaAndDigit(points[0])
-	points[1] = splitAlphaAndDigit(points[1])	
-	return points
+	allPoints = []
+	print allPoints	
+	for point in points:
+		alphaAndDigit = splitAlphaAndDigit(point)
+		allPoints.append(alphaAndDigit)
+	print allPoints	
+	return allPoints
 def getCoordinate(point):
 	if point[0] == leftHalfBoardLong:
 		xCoordinate = leftLongLineStartPoint[0]
@@ -47,16 +51,16 @@ def getCoordinate(point):
 		yCoordinate = (int(point[1]) - 1) * spaceBetweenTwoPad + rightLongLineStartPoint[1]
 	elif point[0] == lineX:
 		xCoordinate = leftShortLineStartPoint[0]
-		yCoordinate = PadOrdertoCoordinate(findClosestPointForXZ(point[1]))
+		yCoordinate = PadOrdertoCoordinate(findClosestPointForXZ(int(point[1])))
 	elif point[0] == lineY:
 		xCoordinate = rightShortLineStartPoint[0]
-		yCoordinate = PadOrdertoCoordinate(findClosestPointForWY(point[1]))
+		yCoordinate = PadOrdertoCoordinate(findClosestPointForWY(int(point[1])))
 	elif point[0] == lineW:
 		xCoordinate = leftShortLineStartPoint[0]
-		yCoordinate = PadOrdertoCoordinate(findClosestPointforWY(point[1]))	
+		yCoordinate = PadOrdertoCoordinate(findClosestPointforWY(int(point[1])))
 	elif point[0] == lineZ:
 		xCoordinate = rightShortLineStartPoint[0]
-		yCoordinate = PadOrdertoCoordinate(findClosestPointForXZ(point[1]))	
+		yCoordinate = PadOrdertoCoordinate(findClosestPointForXZ(int(point[1])))
 	Coordinate = [xCoordinate,yCoordinate]
 	return Coordinate		
 def splitAlphaAndDigit(point):
@@ -78,53 +82,69 @@ def splitAlphaAndDigit(point):
 	return Point
 def findClosestPointForXZ(yAxisOrder):
 	yCoordinate = (yAxisOrder - 1) * spaceBetweenTwoPad + leftLongLineStartPoint[1]
-	OrderofPadToConnect = yCoordinate / spaceBetweenTwoPairsOfPadForXZWY
+	OrderofPadToConnect = yCoordinate // spaceBetweenTwoPairsOfPadForXZWY
 	return OrderofPadToConnect
 def findClosestPointForWY(yAxisOrder):
 	yCoordinate = (yAxisOrder - 1) * spaceBetweenTwoPad + rightLongLineStartPoint[1]
-	OrderofPadToConnect = yCoordinate / spaceBetweenTwoPairsOfPadForXZWY
+	OrderofPadToConnect = yCoordinate // spaceBetweenTwoPairsOfPadForXZWY
 	return OrderofPadToConnect
 def PadOrdertoCoordinate(orderofPadToConnect):
-	CoordinateToConnect = startYCoordinateForWY + OrderofPadToConnect * spaceBetweenTwoPairsOfPadForXZWY
-
-def addsignal(points,signal_index,wire_index):
+	CoordinateToConnect = startYCoordinateForWY + orderofPadToConnect * spaceBetweenTwoPairsOfPadForXZWY
+	return CoordinateToConnect
+def addsignal(points):	
+	global signalIndex
+	global wireIndex
 	signalLength = len(points)
 	for signals in root.iter('signals'):
+		print signalIndex
 		newsignal = ET.Element('signal')
-		newsignal.set('name','signal' + str(signal_index))
+		newsignal.set('name','signal' + str(signalIndex))
 		padNameList = getContactref(points)
 		for pad in padNameList:
 			newContactref = ET.Element('contactref')
-			newContactref.set('name',str(pad)) 
+			newContactref.set('element',str(pad)) 
 			newContactref.set('pad',"P$1")
 			newsignal.append(newContactref)	
 		## time to add wire using signal_index and wireindex
-		
+		for i in range(0,signalLength - 1):
+			wire = ET.Element('wire')
+			firstPointCoordinate = getCoordinate(points[i])
+			secondPointCoordinate = getCoordinate(points[i+1])
+			wire.set('x1',str(firstPointCoordinate[0]))
+			wire.set('x2',str(secondPointCoordinate[0]))
+			wire.set('y1',str(firstPointCoordinate[1]))
+			wire.set('y2',str(secondPointCoordinate[1]))
+			wire.set('layer','19')
+			wire.set('width','0')
+			wire.set('extent',"1-1")
+			newsignal.append(wire)
+			wireIndex = wireIndex + 1		
 		signals.append(newsignal)
+		signalIndex = signalIndex + 1
 def getContactref(points):
 	padNameList = []
 	for point in points:
-		Pad = splitAlphaAndDigit(point)
+		Pad = point
 		if Pad[0] == leftHalfBoardLong:
 			padName = "LL" + str(point[1])
 		elif Pad[0] == rightHalfBoardLong:
 			padName = "RL" + str(point[1])
 		elif Pad[0] == lineX:
-			padName = "LS" + str(findClosestPointForXZ * 2) 
+			padName = "LS" + str(int(findClosestPointForXZ(int(point[1]))) * 2) 
 		elif Pad[0] == lineY:
-			padName = "RS" + str((findClosestPointForWY * 2 + 1))
+			padName = "RS" + str(int((findClosestPointForWY(int(point[1]))) * 2 + 1))
 		elif Pad[0] == lineW:
-			padName = "LS" + str((findClosestPointForWY * 2 + 1))
+			padName = "LS" + str(int((findClosestPointForWY(int(point[1])))) * 2 + 1)
 		elif Pad[0] == lineZ:
-			padName = "RS" + str(findClosestPointForXZ * 2)
+			padName = "RS" + str(int(findClosestPointForXZ(int(point[1]))) * 2)
 		padNameList.append(padName)
 	return padNameList		 
-def addWire(first_point,second_point,signal_index,wire_index):	
-	print wire_index
-	for wire in root.iter('signals'):
-		child = ET.Element('signal')
-		child.set('name','wire' + str(wire_index))
+def addWire(first_point,second_point):	
+	global wireIndex
+	global signalIndex
+	for signal in root.iter('signal' + str(signalIndex)):
 		cchild = ET.Element('wire')
+		cchild.set('name','wire' + str(wireIndex))
 		firstPointCoordinate = getCoordinate(first_point)
 		secondPointCoordinate = getCoordinate(second_point)
 		cchild.set('x1',str(firstPointCoordinate[0]))
@@ -135,8 +155,8 @@ def addWire(first_point,second_point,signal_index,wire_index):
 		cchild.set('width','0')
 		cchild.set('extent',"1-1")
 		child.append(cchild)
-		wire.append(child)
-	wireIndex = wireIndex + 1		
+		signal.append(child)
+		wireIndex = wireIndex + 1		
 	
 if __name__ == '__main__':
 	main()
