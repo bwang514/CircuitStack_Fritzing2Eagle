@@ -10,7 +10,6 @@ if int(output) == 0:
 else:
 	print "long board"
 	brd = "tmp_64.brd"
-os.system("python xml_reader.py " + sys.argv[1])
 tree = ET.parse(brd)
 root = tree.getroot()
 print root
