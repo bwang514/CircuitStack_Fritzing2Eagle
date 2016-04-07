@@ -1,6 +1,17 @@
 import xml.etree.ElementTree as ET
 import sys
-tree = ET.parse(sys.argv[1])
+import os
+import commands
+( status ,  output ) = commands.getstatusoutput("python xml_reader.py " + sys.argv[1]) 
+print  output
+if int(output) == 0:
+	print "short board"
+	brd = "tmp_30.brd"
+else:
+	print "long board"
+	brd = "tmp_64.brd"
+os.system("python xml_reader.py " + sys.argv[1])
+tree = ET.parse(brd)
 root = tree.getroot()
 print root
 leftHalfBoardLong = 0
@@ -35,7 +46,11 @@ RL = []
 RS = []
 def main():	
 	signals = readInputFile()
-	buildShortLine()
+	if	int(output) == 1:
+		buildShortLine()
+		print "hihih"	
+	else: 
+		buildShortLine30()
 	for signal in signals:
 		#print 'signal index = ' + str(signalIndex)
 		points = splitWireIntoPoints(signal)
@@ -55,59 +70,60 @@ def splitWireIntoPoints(wire):
 		allPoints.append(alphaAndDigit)
 	return allPoints
 def getCoordinateFromTwoPoints(point1,point2):
+	print "point1 = " + str(point1) + " point2 = " + str(point2)
 	if point1[0] >= lineX and point2[0] >= lineX:
 		if point1[0] == lineX or point1[0] == lineZ:
-			index = findClosestPointForXZ(point1[1])
+			index = findClosestPointForXZ(int(point1[1]) - 1)
 			Yaxis = PadOrdertoCoordinateXZ(index) 
 		elif point1[0] == lineW or point1[0] == lineY:
-			index =  findClosestPointForWY(point1[1])
+			index =  findClosestPointForWY(int(point1[1]) - 1)
 			Yaxis = PadOrdertoCoordinateWY(index)
 		if point1[0] == lineX or point1[0] == lineW:
-			Coordinate1 = [leftShortLineStartPoint,Yaxis]
+			Coordinate1 = [leftShortLineStartPoint[0],Yaxis]
 			if point2[0] == lineX:
-				Coordinate2 = [leftShortLineStartPoint,PadOrdertoCoordinateXZ(index)]
+				Coordinate2 = [leftShortLineStartPoint[0],PadOrdertoCoordinateXZ(index)]
 			elif point2[0] == lineW:	
-				Coordinate2 = [leftShortLineStartPoint,PadOrdertoCoordinateWY(index)]
+				Coordinate2 = [leftShortLineStartPoint[0],PadOrdertoCoordinateWY(index)]
 			elif point2[0] == lineY:
-				Coordinate2 = [rightShortLineStartPoint,PadOrdertoCoordinateWY(index)]
+				Coordinate2 = [rightShortLineStartPoint[0],PadOrdertoCoordinateWY(index)]
 			elif point2[0] == lineZ:
-				Coordinate2 = [rightShortLineStartPoint,PadOrdertoCoordinateXZ(index)]
+				Coordinate2 = [rightShortLineStartPoint[0],PadOrdertoCoordinateXZ(index)]
 		elif point1[0] == lineY or point1[0] == lineZ:
-			Coordinate1 = [rightShortLineStartPoint,Yaxis]
+			Coordinate1 = [rightShortLineStartPoint[0],Yaxis]
 			if point2[0] == lineX: 
-				Coordinate2 = [leftShortLineStartPoint,PadOrdertoCoordinateXZ(index)]
+				Coordinate2 = [leftShortLineStartPoint[0],PadOrdertoCoordinateXZ(index)]
 			elif point2[0] == lineW:	
-				Coordinate2 = [leftShortLineStartPoint,PadOrdertoCoordinateWY(index)]
+				Coordinate2 = [leftShortLineStartPoint[0],PadOrdertoCoordinateWY(index)]
 			elif point2[0] == lineY:
-				Coordinate2 = [rightShortLineStartPoint,PadOrdertoCoordinateWY(index)]
+				Coordinate2 = [rightShortLineStartPoint[0],PadOrdertoCoordinateWY(index)]
 			elif point2[0] == lineZ:
-				Coordinate2 = [rightShortLineStartPoint,PadOrdertoCoordinateXZ(index)]																	
+				Coordinate2 = [rightShortLineStartPoint[0],PadOrdertoCoordinateXZ(index)]																	
 	elif point1[0] >= lineX and point2[0] < lineX:
 		if point1[0] == lineX or point1[0] == lineZ: 
 			if point1[0] == lineX:
-				Coordinate1 = [leftShortLineStartPoint[0],PadOrdertoCoordinateXZ(findClosestPointForXZ(point2[1]))]
+				Coordinate1 = [leftShortLineStartPoint[0],PadOrdertoCoordinateXZ(findClosestPointForXZ(int(point2[1]) - 1))]
 			elif point1[0] == lineZ:
-				Coordinate1 = [rightShortLineStartPoint[0],PadOrdertoCoordinateXZ(findClosestPointForXZ(point2[1]))]			
+				Coordinate1 = [rightShortLineStartPoint[0],PadOrdertoCoordinateXZ(findClosestPointForXZ(int(point2[1]) - 1))]			
 			Coordinate2 = getCoordinate(point2)
 		elif point1[0] == lineW or point1[0] == lineY: 
 			if point1[0] == lineW: 
-				Coordinate1 = [leftShortLineStartPoint[0],PadOrdertoCoordinateWY(findClosestPointForW(point2[1]))]
+				Coordinate1 = [leftShortLineStartPoint[0],PadOrdertoCoordinateWY(findClosestPointForWY(int(point2[1]) - 1))]
 			elif point1[0] == lineY:
-				Coordinate1 = [rightShortLineStartPoint[0],PadOrdertoCoordinateWY(findClosestPointForWY(point2[1]))]	
+				Coordinate1 = [rightShortLineStartPoint[0],PadOrdertoCoordinateWY(findClosestPointForWY(int(point2[1]) - 1))]	
 			Coordinate2 = getCoordinate(point2)
 	elif point1[0] < lineX and point2[0] >=lineX:
 		if point2[0] == lineX or point2[0] == lineZ:  
 			Coordinate1 = getCoordinate(point1)
 			if point2[0] == lineX: 
-				Coordinate2 = [leftShortLineStartPoint[0],PadOrdertoCoordinateXZ(findClosestPointForXZ(point1[1]))]
+				Coordinate2 = [leftShortLineStartPoint[0],PadOrdertoCoordinateXZ(findClosestPointForXZ(int(point1[1]) - 1))]
 			elif point2[0] == lineZ:
-				Coordinate2 = [rightShortLineStartPoint[0],PadOrdertoCoordinateXZ(findClosestPointForXZ(point1[1]))]
+				Coordinate2 = [rightShortLineStartPoint[0],PadOrdertoCoordinateXZ(findClosestPointForXZ(int(point1[1]) - 1))]
 		elif point2[0] == lineW or point2[0] == lineY:
 			Coordinate1 = getCoordinate(point1)
 			if point2[0] == lineW: 
-				Coordinate2 = [leftShortLineStartPoint[0],PadOrdertoCoordinateWY(findClosestPointForWY(point1[1]))]
+				Coordinate2 = [leftShortLineStartPoint[0],PadOrdertoCoordinateWY(findClosestPointForWY(int(point1[1]) - 1))]
 			elif point2[0] == lineY:
-				Coordinate2 = [rightShortLineStartPoint[0],PadOrdertoCoordinateWY(findClosestPointForWY(point1[1]))]
+				Coordinate2 = [rightShortLineStartPoint[0],PadOrdertoCoordinateWY(findClosestPointForWY(int(point1[1]) - 1))]
 	elif point1[0] < lineX and point2[0] < lineX:
 		Coordinate1 = getCoordinate(point1)
 		Coordinate2 = getCoordinate(point2)
@@ -141,14 +157,14 @@ def splitAlphaAndDigit(point):
 	Point = [x1,Digit]
 	return Point
 def findClosestPointForXZ(yAxisOrder):
+	print "y input = " + str(yAxisOrder)
 	min_distance = 999999999
 	for i in range(0,12):	
 		distance = abs(((63 - int(yAxisOrder)) * spaceBetweenTwoPad + 4) - (line3_y + i * 13.33))
 		if distance < min_distance : 
 			min_distance = distance
 			OrderofPadToConnect = i
-	print yAxisOrder		
-	print OrderofPadToConnect		
+	print "find" + str(OrderofPadToConnect)		
 	return OrderofPadToConnect
 def findClosestPointForWY(yAxisOrder):
 	min_distance = 999999999
@@ -160,7 +176,8 @@ def findClosestPointForWY(yAxisOrder):
 			OrderofPadToConnect = i
 	return OrderofPadToConnect
 def PadOrdertoCoordinateXZ(OrderofPadToConnect):
-	CoordinateToConnect = startYCoordinateForXZ + OrderofPadToConnect * spaceBetweenTwoPairsOfPadForXZWY
+	print "order in XZ = " + str(OrderofPadToConnect)
+	CoordinateToConnect = startYCoordinateForXZ + (OrderofPadToConnect) * spaceBetweenTwoPairsOfPadForXZWY
 	return CoordinateToConnect
 def PadOrdertoCoordinateWY(OrderofPadToConnect):
 	CoordinateToConnect = startYCoordinateForWY + OrderofPadToConnect * spaceBetweenTwoPairsOfPadForXZWY
@@ -241,6 +258,41 @@ def buildShortLine():
 			child.set('x',str(line2_x))
 			child.set('y',str(line2_y + (j/2) * 13.33))
 			wire.append(child)
+def buildShortLine30():	
+   	for wire in root.iter('elements'):
+		for j in range(0, 12, +2):
+			child = ET.Element('element')
+			child.set('name','RS' + str(12 - j - 2))
+			child.set('library',"SparkFun-Connectors")
+			child.set('package',"1X01")
+			child.set('value',"")
+			child.set('x',str(line3_x))
+			child.set('y',str(line3_y + (j/2) * 13.33 + 2.54 + 87.82))
+			wire.append(child)
+			child = ET.Element('element')
+			child.set('name','LS' + str(12 - j - 2))
+			child.set('library',"SparkFun-Connectors")
+			child.set('package',"1X01")
+			child.set('value',"")
+			child.set('x',str(line2_x))
+			child.set('y',str(line2_y + (j/2) * 13.33 + 2.54 + 87.82))
+			wire.append(child)								
+			child = ET.Element('element')
+			child.set('name','RS' + str(12 - j - 1))
+			child.set('library',"SparkFun-Connectors")
+			child.set('package',"1X01")
+			child.set('value',"")
+			child.set('x',str(line3_x))
+			child.set('y',str(line3_y + (j/2) * 13.33 + 87.82))
+			wire.append(child)
+			child = ET.Element('element')
+			child.set('name','LS' + str(12 - j - 1))
+			child.set('library',"SparkFun-Connectors")
+			child.set('package',"1X01")
+			child.set('value',"")
+			child.set('x',str(line2_x))
+			child.set('y',str(line2_y + (j/2) * 13.33 + 87.82))
+			wire.append(child)			
 def getContactref(points):
 	padNameList = []
 	global LL
@@ -248,9 +300,12 @@ def getContactref(points):
 	global RL
 	global RS
 	length = len(points)
+	print points
 	for i in range(0,length):
 		Pad = points[i]
+		print "Pad = " + str(Pad) 
 		index = int(points[i][1]) - 1
+		print points[i-1]
 		yaxis = int(points[i - 1][1]) - 1
 		print "yaxis = " + str(yaxis)
 		if Pad[0] == leftHalfBoardLong:
@@ -272,6 +327,7 @@ def getContactref(points):
 		elif Pad[0] == lineW:
 			padName = "LS" + str((11 - findClosestPointForWY(yaxis)) * 2)
 		elif Pad[0] == lineZ:
+			print "order in contred = " +str(findClosestPointForXZ(yaxis))
 			padName = "RS" + str((11 - findClosestPointForXZ(yaxis)) * 2 + 1)
 		padNameList.append(padName)
 	return padNameList		 
