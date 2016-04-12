@@ -6,7 +6,7 @@ import re
 
 def main():
 	if len(sys.argv) == 2:
-		long_board = 0
+
 		# Extract Fzz File for fz only or rename fz file as 'output.fz'.
 		extractFile(sys.argv[1])
 		
@@ -37,30 +37,48 @@ def main():
 		# WireName type pin[1,2,3,4][A,B,C]
 		boardType2 = ["Breadboard-RSR03MB102-ModuleID", "13f88e58b86d08d73d112f0fb05e6968"]
 
-		paths, wireType = findConnectionsOnBoard(filteredInstances, "moduleIdRef", boardType1, boardType2, 'WireModuleID', [])
+		paths, wireType, boardName = findConnectionsOnBoard(filteredInstances, "moduleIdRef", boardType1, boardType2, 'WireModuleID', [])
 		combinedPaths = combinePaths(paths)
 
 		formatedPaths = formatPaths(combinedPaths, wireType)
 
 		combineBreadboradPointsPaths = combineBreadboardPoints(formatedPaths)
-		##print combineBreadboradPointsPaths
+		finalPaths = checkWXYZLineConnectionAndCombine(combineBreadboradPointsPaths)
+		
+		# print finalPaths
 		with open('input.txt', 'w') as f:
-			for path in combineBreadboradPointsPaths:
+
+			if moduleId_identifierToRowsCount(boardName):
+				print str(moduleId_identifierToRowsCount(boardName))
+			else:
+				print "Board Not Found\n"
+			for path in finalPaths:
 				f.write(str(path))
 				f.write('\n')
-		for path in combineBreadboradPointsPaths:
-			for point in path:
-				digit = filter(str.isdigit,point)
-				if int(digit) > 30:
-					long_board = 1
-		if long_board == 1:
-			print long_board
-		else:
-			print 0				
-				
 
 	else:
 		print "ERROR: Please input file name."
+
+
+def moduleId_identifierToRowsCount(boardName):
+
+	if boardName in ["BreadboardModuleID", "Breadboard-RSR03MB102-ModuleID"]:
+		# return 64
+		return 1
+	elif boardName in ["HalfBreadboardModuleID", "13f88e58b86d08d73d112f0fb05e6968"]:
+		return 0
+		# return 30
+	elif boardName in ["HalfMinusBreadboardModuleID"]:
+		return 0
+		# return 23
+	elif boardName in ["TinyBreadboardModuleID"]:
+		return 0
+		# return 20
+	elif boardName in ["MiniBreadboardModuleID"]:
+		return 0
+		# return 17
+	else:
+		return None
 
 def extractFile(filepath):
 
@@ -108,13 +126,16 @@ def findConnectionsOnBoard(instances, moduleId_identifier, bread1Names, bread2Na
 	breadBoardInstance = None
 	wireInstances = []
 	wireType = None
+	boardName = None
 	for instance in instances:
 		if instance.get(moduleId_identifier) in bread1Names:
 			if breadBoardInstance == None:
+				boardName = instance.get(moduleId_identifier)
 				breadBoardInstance = instance
 				wireType = 0
 		if instance.get(moduleId_identifier) in bread2Names:
 			if breadBoardInstance == None:
+				boardName = instance.get(moduleId_identifier)
 				breadBoardInstance = instance
 				wireType = 1
 		if instance.get(moduleId_identifier) == wireName:
@@ -159,7 +180,7 @@ def findConnectionsOnBoard(instances, moduleId_identifier, bread1Names, bread2Na
 		if path not in pathsOnBoard and len(path) >= 2:
 			pathsOnBoard.append(path)
 		
-	return pathsOnBoard, wireType
+	return pathsOnBoard, wireType, boardName
 
 # Return <connect> instances.
 def findConnectionByModuleIndex(indexToFind, wireInstances, excludeIDs):
@@ -232,7 +253,42 @@ def combineBreadboardPoints(paths):
 				paths[x][y] = 'F' + XYvalue2.group(2)
 			else:
 				continue
+	
 	paths = combinePaths(paths)
 	return paths
+def checkWXYZLineConnectionAndCombine(paths):
+	groupName = ['W', 'X', 'Y', 'Z']
+	pathCombine = {}
+	groupWXYZ = []
+	
+	returnPaths = []
+	for path in paths:
+		count = 0
+		names = []
+		for point in path:
+			if point[:1] in groupName:
+				names.append(point[:1])
+				count+=1	
+		if count == 0:
+			returnPaths.append(path)
+		elif count == 1:
+			if names[0] not in pathCombine:
+				pathCombine[names[0]] = []
+			pathCombine[names[0]].append(path)
+		elif count == 2: # I only assume for 2, it shouldn't be connect to vcc and gnd at the same time.
+			groupWXYZ.append(names)
+
+	for group in groupWXYZ:
+		finalName = group[0]
+		finalPaths = []
+		for name in group:
+			for connection in pathCombine[name]:
+				for point in connection:
+					finalPaths.append(point)
+			
+		returnPaths.append(finalPaths)
+	return returnPaths
+
+
 if __name__ == '__main__':
 	main()

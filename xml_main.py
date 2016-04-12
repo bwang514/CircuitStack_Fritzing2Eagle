@@ -10,32 +10,35 @@ if int(output) == 0:
 else:
 	print "long board"
 	brd = "tmp_64.brd"
+os.system("python xml_reader.py " + sys.argv[1])
 tree = ET.parse(brd)
 root = tree.getroot()
 print root
 leftHalfBoardLong = 0
 rightHalfBoardLong = 1
-line1_x = 7
-line1_y = 4
+line1_x = 6.8984
+line1_y = 3.8984
 line4_x = 24.78
-line4_y = 4
-line2_x = 13.99
-line2_y = 8.66
-line3_x = 13.99 + 3.81
-line3_y = 8.66
+line4_y = 3.8984
+line2_x = 13.88
+line2_y = 8.554
+line3_x = 13.88 + 3.81
+line3_y = 8.554
 lineX = 2
 lineY = 3
 lineW = 4
 lineZ = 5
+elementName = "1X01_OVAL_PIN_AUTO"
+elementPadName = "P$1"
 spaceBetweenTwoLongLine = 17.78
 spaceBetweenTwoShortLine = 3.81
-leftLongLineStartPoint = [7,4]
-rightLongLineStartPoint = [7 + spaceBetweenTwoLongLine , 4]
-leftShortLineStartPoint = [13.99 , 8.66]
-rightShortLineStartPoint = [13.99 + spaceBetweenTwoShortLine , 8.66]
-spaceBetweenTwoPairsOfPadForXZWY = 13.33 
+leftLongLineStartPoint = [line1_x,line1_y]
+rightLongLineStartPoint = [line1_x + spaceBetweenTwoLongLine , line4_y]
+leftShortLineStartPoint = [13.88 , 8.554]
+rightShortLineStartPoint = [line2_x + spaceBetweenTwoShortLine , line2_y]
+spaceBetweenTwoPairsOfPadForXZWY = 13.55 
 spaceBetweenTwoPad = 2.54
-startYCoordinateForXZ = 8.66
+startYCoordinateForXZ = 8.554
 startYCoordinateForWY = startYCoordinateForXZ + spaceBetweenTwoPad
 wireIndex = 0
 signalIndex = 0
@@ -47,7 +50,6 @@ def main():
 	signals = readInputFile()
 	if	int(output) == 1:
 		buildShortLine()
-		print "hihih"	
 	else: 
 		buildShortLine30()
 	for signal in signals:
@@ -127,7 +129,7 @@ def getCoordinateFromTwoPoints(point1,point2):
 		Coordinate1 = getCoordinate(point1)
 		Coordinate2 = getCoordinate(point2)
 	Coordinate = [Coordinate1,Coordinate2]
-	#print Coordinate
+	print Coordinate
 	return Coordinate			
 def getCoordinate(point):
 	if point[0] == leftHalfBoardLong:
@@ -160,6 +162,7 @@ def findClosestPointForXZ(yAxisOrder):
 	min_distance = 999999999
 	for i in range(0,12):	
 		distance = abs(((63 - int(yAxisOrder)) * spaceBetweenTwoPad + 4) - (line3_y + i * 13.33))
+		print distance
 		if distance < min_distance : 
 			min_distance = distance
 			OrderofPadToConnect = i
@@ -193,7 +196,7 @@ def addsignal(points):
 		for pad in padNameList:
 			newContactref = ET.Element('contactref')
 			newContactref.set('element',str(pad)) 
-			newContactref.set('pad',"1")
+			newContactref.set('pad',elementPadName)
 			newsignal.append(newContactref)	
 		## time to add wire using signal_index and wireindex
 		for i in range(0,signalLength - 1):
@@ -217,7 +220,7 @@ def addPadOnTheBoard(line,index,Coordinate):
 		child = ET.Element('element')
     	child.set('name',str(line) + str(int(index)))
     	child.set('library',"SparkFun-Connectors") 
-    	child.set('package',"1X01")
+    	child.set('package',elementName)
     	child.set('value',"")
     	child.set('x',str(Coordinate[0]))
     	child.set('y',str(Coordinate[1]))
@@ -228,34 +231,34 @@ def buildShortLine():
 			child = ET.Element('element')
 			child.set('name','RS' + str(24 - j - 2))
 			child.set('library',"SparkFun-Connectors")
-			child.set('package',"1X01")
+			child.set('package',elementName)
 			child.set('value',"")
 			child.set('x',str(line3_x))
-			child.set('y',str(line3_y + (j/2) * 13.33 + 2.54))
+			child.set('y',str(line3_y + (j/2) * spaceBetweenTwoPairsOfPadForXZWY + 2.54))
 			wire.append(child)
 			child = ET.Element('element')
 			child.set('name','LS' + str(24 - j - 2))
 			child.set('library',"SparkFun-Connectors")
-			child.set('package',"1X01")
+			child.set('package',elementName)
 			child.set('value',"")
 			child.set('x',str(line2_x))
-			child.set('y',str(line2_y + (j/2) * 13.33 + 2.54))
+			child.set('y',str(line2_y + (j/2) * spaceBetweenTwoPairsOfPadForXZWY + 2.54))
 			wire.append(child)								
 			child = ET.Element('element')
 			child.set('name','RS' + str(24 - j - 1))
 			child.set('library',"SparkFun-Connectors")
-			child.set('package',"1X01")
+			child.set('package',elementName)
 			child.set('value',"")
 			child.set('x',str(line3_x))
-			child.set('y',str(line3_y + (j/2) * 13.33))
+			child.set('y',str(line3_y + (j/2) * spaceBetweenTwoPairsOfPadForXZWY))
 			wire.append(child)
 			child = ET.Element('element')
 			child.set('name','LS' + str(24 - j - 1))
 			child.set('library',"SparkFun-Connectors")
-			child.set('package',"1X01")
+			child.set('package',elementName)
 			child.set('value',"")
 			child.set('x',str(line2_x))
-			child.set('y',str(line2_y + (j/2) * 13.33))
+			child.set('y',str(line2_y + (j/2) * spaceBetweenTwoPairsOfPadForXZWY))
 			wire.append(child)
 def buildShortLine30():	
    	for wire in root.iter('elements'):
@@ -263,34 +266,34 @@ def buildShortLine30():
 			child = ET.Element('element')
 			child.set('name','RS' + str(12 - j - 2))
 			child.set('library',"SparkFun-Connectors")
-			child.set('package',"1X01")
+			child.set('package',elementName)
 			child.set('value',"")
 			child.set('x',str(line3_x))
-			child.set('y',str(line3_y + (j/2) * 13.33 + 2.54 + 87.82))
+			child.set('y',str((j/2) * spaceBetweenTwoPairsOfPadForXZWY + 2.54 + 8.66 + 87.66))
 			wire.append(child)
 			child = ET.Element('element')
 			child.set('name','LS' + str(12 - j - 2))
 			child.set('library',"SparkFun-Connectors")
-			child.set('package',"1X01")
+			child.set('package',elementName)
 			child.set('value',"")
 			child.set('x',str(line2_x))
-			child.set('y',str(line2_y + (j/2) * 13.33 + 2.54 + 87.82))
+			child.set('y',str((j/2) * spaceBetweenTwoPairsOfPadForXZWY + 2.54 + 8.66 + 87.66))
 			wire.append(child)								
 			child = ET.Element('element')
 			child.set('name','RS' + str(12 - j - 1))
 			child.set('library',"SparkFun-Connectors")
-			child.set('package',"1X01")
+			child.set('package',elementName)
 			child.set('value',"")
 			child.set('x',str(line3_x))
-			child.set('y',str(line3_y + (j/2) * 13.33 + 87.82))
+			child.set('y',str((j/2) * spaceBetweenTwoPairsOfPadForXZWY + 87.66 + 8.66))
 			wire.append(child)
 			child = ET.Element('element')
 			child.set('name','LS' + str(12 - j - 1))
 			child.set('library',"SparkFun-Connectors")
-			child.set('package',"1X01")
+			child.set('package',elementName)
 			child.set('value',"")
 			child.set('x',str(line2_x))
-			child.set('y',str(line2_y + (j/2) * 13.33 + 87.82))
+			child.set('y',str((j/2) * spaceBetweenTwoPairsOfPadForXZWY + 87.66 + 8.66))
 			wire.append(child)			
 def getContactref(points):
 	padNameList = []
@@ -299,14 +302,14 @@ def getContactref(points):
 	global RL
 	global RS
 	length = len(points)
-	print points
+	##print points
 	for i in range(0,length):
 		Pad = points[i]
-		print "Pad = " + str(Pad) 
+		##print "Pad = " + str(Pad) 
 		index = int(points[i][1]) - 1
-		print points[i-1]
+		##print points[i-1]
 		yaxis = int(points[i - 1][1]) - 1
-		print "yaxis = " + str(yaxis)
+		##print "yaxis = " + str(yaxis)
 		if Pad[0] == leftHalfBoardLong:
 			padName = "LL" + str(index)
 			if index not in LL:
