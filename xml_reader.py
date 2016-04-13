@@ -48,7 +48,7 @@ def main():
 		# print finalPaths
 		with open('input.txt', 'w') as f:
 
-			if moduleId_identifierToRowsCount(boardName):
+			if moduleId_identifierToRowsCount(boardName) != None:
 				print str(moduleId_identifierToRowsCount(boardName))
 			else:
 				print "Board Not Found\n"
@@ -263,21 +263,19 @@ def checkWXYZLineConnectionAndCombine(paths):
 	
 	returnPaths = []
 	for path in paths:
-		count = 0
 		names = []
 		for point in path:
 			if point[:1] in groupName:
 				names.append(point[:1])
-				count+=1	
-		if count == 0:
+		if len(names) == 0:
 			returnPaths.append(path)
-		elif count == 1:
+		elif len(names) == 1:
 			if names[0] not in pathCombine:
 				pathCombine[names[0]] = []
 			pathCombine[names[0]].append(path)
-		elif count == 2: # I only assume for 2, it shouldn't be connect to vcc and gnd at the same time.
+		elif len(names) == 2: # I only assume for 2, it shouldn't be connect to vcc and gnd at the same time.
 			groupWXYZ.append(names)
-
+	
 	for group in groupWXYZ:
 		finalName = group[0]
 		finalPaths = []
@@ -285,8 +283,15 @@ def checkWXYZLineConnectionAndCombine(paths):
 			for connection in pathCombine[name]:
 				for point in connection:
 					finalPaths.append(point)
-			
+			del pathCombine[name]
 		returnPaths.append(finalPaths)
+	for path in pathCombine:
+		combined = []
+		for _path in pathCombine[path]:
+			for t in _path:
+				combined.append(t)
+		returnPaths.append(combined)
+
 	return returnPaths
 
 
