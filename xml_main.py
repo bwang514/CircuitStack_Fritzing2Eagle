@@ -48,10 +48,10 @@ RL = []
 RS = []
 def main():	
 	signals = readInputFile()
-	if	int(output) == 1:
-		buildShortLine()
-	else: 
-		buildShortLine30()
+##	if	int(output) == 1:
+##		buildShortLine()
+##	else: 
+##		buildShortLine30()
 	for signal in signals:
 		#print 'signal index = ' + str(signalIndex)
 		points = splitWireIntoPoints(signal)
@@ -315,13 +315,13 @@ def getContactref(points):
 			if index not in LL:
 				Coordinate = getCoordinate(points[i])
 				LL.append(index)
-				addPadOnTheBoard("LL",str(index),Coordinate)
+				##addPadOnTheBoard("LL",str(index),Coordinate)
 		elif Pad[0] == rightHalfBoardLong:
 			padName = "RL" + str(index)
 			if index not in RL:
 				Coordinate = getCoordinate(points[i])
 				RL.append(index)
-				addPadOnTheBoard("RL",str(index),Coordinate)		
+				##addPadOnTheBoard("RL",str(index),Coordinate)		
 		elif Pad[0] == lineX:
 			padName = "LS" + str((11 - findClosestPointForXZ(yaxis)) * 2 + 1) 
 		elif Pad[0] == lineY:

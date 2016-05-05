@@ -1,80 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE eagle SYSTEM "eagle.dtd">
 <eagle version="7.3.0">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
-<setting verticaltext="up"/>
+<setting alwaysvectorfont="no" />
+<setting verticaltext="up" />
 </settings>
-<grid distance="0.05" unitdist="inch" unit="mm" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="mm"/>
+<grid altdistance="0.025" altunit="mm" altunitdist="inch" display="no" distance="0.05" multiple="1" style="lines" unit="mm" unitdist="inch" />
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
-<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
-<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
-<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
-<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
-<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
-<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
-<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
-<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
-<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
-<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
-<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
-<layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
-<layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
-<layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
-<layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
-<layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
-<layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
-<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
-<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
-<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
-<layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
-<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="90" name="Modules" color="5" fill="1" visible="no" active="no"/>
-<layer number="91" name="Nets" color="2" fill="1" visible="no" active="no"/>
-<layer number="92" name="Busses" color="1" fill="1" visible="no" active="no"/>
-<layer number="93" name="Pins" color="2" fill="1" visible="no" active="no"/>
-<layer number="94" name="Symbols" color="4" fill="1" visible="no" active="no"/>
-<layer number="95" name="Names" color="7" fill="1" visible="no" active="no"/>
-<layer number="96" name="Values" color="7" fill="1" visible="no" active="no"/>
-<layer number="97" name="Info" color="7" fill="1" visible="no" active="no"/>
-<layer number="98" name="Guide" color="6" fill="1" visible="no" active="no"/>
+<layer active="yes" color="4" fill="1" name="Top" number="1" visible="yes" />
+<layer active="no" color="1" fill="3" name="Route2" number="2" visible="no" />
+<layer active="no" color="4" fill="3" name="Route3" number="3" visible="no" />
+<layer active="no" color="1" fill="4" name="Route4" number="4" visible="no" />
+<layer active="no" color="4" fill="4" name="Route5" number="5" visible="no" />
+<layer active="no" color="1" fill="8" name="Route6" number="6" visible="no" />
+<layer active="no" color="4" fill="8" name="Route7" number="7" visible="no" />
+<layer active="no" color="1" fill="2" name="Route8" number="8" visible="no" />
+<layer active="no" color="4" fill="2" name="Route9" number="9" visible="no" />
+<layer active="no" color="1" fill="7" name="Route10" number="10" visible="no" />
+<layer active="no" color="4" fill="7" name="Route11" number="11" visible="no" />
+<layer active="no" color="1" fill="5" name="Route12" number="12" visible="no" />
+<layer active="no" color="4" fill="5" name="Route13" number="13" visible="no" />
+<layer active="no" color="1" fill="6" name="Route14" number="14" visible="no" />
+<layer active="no" color="4" fill="6" name="Route15" number="15" visible="no" />
+<layer active="yes" color="1" fill="1" name="Bottom" number="16" visible="yes" />
+<layer active="yes" color="2" fill="1" name="Pads" number="17" visible="yes" />
+<layer active="yes" color="2" fill="1" name="Vias" number="18" visible="yes" />
+<layer active="yes" color="6" fill="1" name="Unrouted" number="19" visible="yes" />
+<layer active="yes" color="15" fill="1" name="Dimension" number="20" visible="yes" />
+<layer active="yes" color="7" fill="1" name="tPlace" number="21" visible="yes" />
+<layer active="yes" color="7" fill="1" name="bPlace" number="22" visible="yes" />
+<layer active="yes" color="15" fill="1" name="tOrigins" number="23" visible="yes" />
+<layer active="yes" color="15" fill="1" name="bOrigins" number="24" visible="yes" />
+<layer active="yes" color="7" fill="1" name="tNames" number="25" visible="yes" />
+<layer active="yes" color="7" fill="1" name="bNames" number="26" visible="yes" />
+<layer active="yes" color="7" fill="1" name="tValues" number="27" visible="yes" />
+<layer active="yes" color="7" fill="1" name="bValues" number="28" visible="yes" />
+<layer active="yes" color="7" fill="3" name="tStop" number="29" visible="no" />
+<layer active="yes" color="7" fill="6" name="bStop" number="30" visible="no" />
+<layer active="yes" color="7" fill="4" name="tCream" number="31" visible="no" />
+<layer active="yes" color="7" fill="5" name="bCream" number="32" visible="no" />
+<layer active="yes" color="6" fill="3" name="tFinish" number="33" visible="no" />
+<layer active="yes" color="6" fill="6" name="bFinish" number="34" visible="no" />
+<layer active="yes" color="7" fill="4" name="tGlue" number="35" visible="no" />
+<layer active="yes" color="7" fill="5" name="bGlue" number="36" visible="no" />
+<layer active="yes" color="7" fill="1" name="tTest" number="37" visible="no" />
+<layer active="yes" color="7" fill="1" name="bTest" number="38" visible="no" />
+<layer active="yes" color="4" fill="11" name="tKeepout" number="39" visible="yes" />
+<layer active="yes" color="1" fill="11" name="bKeepout" number="40" visible="yes" />
+<layer active="yes" color="4" fill="10" name="tRestrict" number="41" visible="yes" />
+<layer active="yes" color="1" fill="10" name="bRestrict" number="42" visible="yes" />
+<layer active="yes" color="2" fill="10" name="vRestrict" number="43" visible="yes" />
+<layer active="yes" color="7" fill="1" name="Drills" number="44" visible="no" />
+<layer active="yes" color="7" fill="1" name="Holes" number="45" visible="no" />
+<layer active="yes" color="3" fill="1" name="Milling" number="46" visible="no" />
+<layer active="yes" color="7" fill="1" name="Measures" number="47" visible="no" />
+<layer active="yes" color="7" fill="1" name="Document" number="48" visible="yes" />
+<layer active="yes" color="7" fill="1" name="Reference" number="49" visible="yes" />
+<layer active="yes" color="7" fill="1" name="tDocu" number="51" visible="yes" />
+<layer active="yes" color="7" fill="1" name="bDocu" number="52" visible="yes" />
+<layer active="no" color="5" fill="1" name="Modules" number="90" visible="no" />
+<layer active="no" color="2" fill="1" name="Nets" number="91" visible="no" />
+<layer active="no" color="1" fill="1" name="Busses" number="92" visible="no" />
+<layer active="no" color="2" fill="1" name="Pins" number="93" visible="no" />
+<layer active="no" color="4" fill="1" name="Symbols" number="94" visible="no" />
+<layer active="no" color="7" fill="1" name="Names" number="95" visible="no" />
+<layer active="no" color="7" fill="1" name="Values" number="96" visible="no" />
+<layer active="no" color="7" fill="1" name="Info" number="97" visible="no" />
+<layer active="no" color="6" fill="1" name="Guide" number="98" visible="no" />
 </layers>
 <board>
 <plain>
-<wire x1="0" y1="0" x2="31.78" y2="0" width="0" layer="20"/>
-<wire x1="31.78" y1="0" x2="31.78" y2="168.02" width="0" layer="20"/>
-<wire x1="31.78" y1="168.02" x2="0" y2="168.02" width="0" layer="20"/>
-<wire x1="0" y1="168.02" x2="0" y2="0" width="0" layer="20"/>
+<wire layer="20" width="0" x1="0" x2="31.78" y1="0" y2="0" />
+<wire layer="20" width="0" x1="31.78" x2="31.78" y1="0" y2="168.02" />
+<wire layer="20" width="0" x1="31.78" x2="0" y1="168.02" y2="168.02" />
+<wire layer="20" width="0" x1="0" x2="0" y1="168.02" y2="0" />
 </plain>
 <libraries>
 <library name="SparkFun-Connectors">
@@ -87,21 +85,21 @@ We've spent an enormous amount of time creating and checking these footprints an
 You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
 <packages>
 <package name="1X01_OVAL_PIN_AUTO">
-	<pad drill="0.8" name="P$1" shape="long" x="0" y="0"/>
+	<pad drill="0.8" name="P$1" shape="long" x="0" y="0" />
 </package>
 <package name="1X01">
-<wire x1="1.27" y1="0.635" x2="0.635" y2="1.27" width="0.2032" layer="21"/>
-<wire x1="0.635" y1="1.27" x2="-0.635" y2="1.27" width="0.2032" layer="21"/>
-<wire x1="-0.635" y1="1.27" x2="-1.27" y2="0.635" width="0.2032" layer="21"/>
-<wire x1="-1.27" y1="0.635" x2="-1.27" y2="-0.635" width="0.2032" layer="21"/>
-<wire x1="-1.27" y1="-0.635" x2="-0.635" y2="-1.27" width="0.2032" layer="21"/>
-<wire x1="-0.635" y1="-1.27" x2="0.635" y2="-1.27" width="0.2032" layer="21"/>
-<wire x1="0.635" y1="-1.27" x2="1.27" y2="-0.635" width="0.2032" layer="21"/>
-<wire x1="1.27" y1="-0.635" x2="1.27" y2="0.635" width="0.2032" layer="21"/>
-<pad name="1" x="0" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
-<text x="1.1938" y="1.8288" size="1.27" layer="25">&gt;NAME</text>
-<text x="-1.27" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
+<wire layer="21" width="0.2032" x1="1.27" x2="0.635" y1="0.635" y2="1.27" />
+<wire layer="21" width="0.2032" x1="0.635" x2="-0.635" y1="1.27" y2="1.27" />
+<wire layer="21" width="0.2032" x1="-0.635" x2="-1.27" y1="1.27" y2="0.635" />
+<wire layer="21" width="0.2032" x1="-1.27" x2="-1.27" y1="0.635" y2="-0.635" />
+<wire layer="21" width="0.2032" x1="-1.27" x2="-0.635" y1="-0.635" y2="-1.27" />
+<wire layer="21" width="0.2032" x1="-0.635" x2="0.635" y1="-1.27" y2="-1.27" />
+<wire layer="21" width="0.2032" x1="0.635" x2="1.27" y1="-1.27" y2="-0.635" />
+<wire layer="21" width="0.2032" x1="1.27" x2="1.27" y1="-0.635" y2="0.635" />
+<pad diameter="1.8796" drill="1.016" name="1" rot="R90" x="0" y="0" />
+<text layer="25" size="1.27" x="1.1938" y="1.8288">&gt;NAME</text>
+<text layer="27" size="1.27" x="-1.27" y="-3.175">&gt;VALUE</text>
+<rectangle layer="51" x1="-0.254" x2="0.254" y1="-0.254" y2="0.254" />
 </package>
 </packages>
 </library>
@@ -111,13 +109,13 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0" drill="0">
+<class drill="0" name="default" number="0" width="0">
 </class>
 </classes>
 <designrules name="default *">
 <description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
-Die Standard-Design-Rules sind so gewählt, dass sie für 
+Die Standard-Design-Rules sind so gew&#228;hlt, dass sie f&#252;r 
 die meisten Anwendungen passen. Sollte ihre Platine 
 besondere Anforderungen haben, treffen Sie die erforderlichen
 Einstellungen hier und speichern die Design Rules unter 
@@ -129,172 +127,172 @@ a wide range of applications. Your particular design
 may have different requirements, so please make the
 necessary adjustments and save your customized
 design rules under a new name.</description>
-<param name="layerSetup" value="(1*16)"/>
-<param name="mtCopper" value="0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm"/>
-<param name="mtIsolate" value="1.5mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm"/>
-<param name="mdWireWire" value="12mil"/>
-<param name="mdWirePad" value="10mil"/>
-<param name="mdWireVia" value="8mil"/>
-<param name="mdPadPad" value="8mil"/>
-<param name="mdPadVia" value="8mil"/>
-<param name="mdViaVia" value="8mil"/>
-<param name="mdSmdPad" value="8mil"/>
-<param name="mdSmdVia" value="8mil"/>
-<param name="mdSmdSmd" value="8mil"/>
-<param name="mdViaViaSameLayer" value="8mil"/>
-<param name="mnLayersViaInSmd" value="2"/>
-<param name="mdCopperDimension" value="40mil"/>
-<param name="mdDrill" value="8mil"/>
-<param name="mdSmdStop" value="0mil"/>
-<param name="msWidth" value="10mil"/>
-<param name="msDrill" value="24mil"/>
-<param name="msMicroVia" value="9.99mm"/>
-<param name="msBlindViaRatio" value="0.5"/>
-<param name="rvPadTop" value="0.25"/>
-<param name="rvPadInner" value="0.25"/>
-<param name="rvPadBottom" value="0.25"/>
-<param name="rvViaOuter" value="0.25"/>
-<param name="rvViaInner" value="0.25"/>
-<param name="rvMicroViaOuter" value="0.25"/>
-<param name="rvMicroViaInner" value="0.25"/>
-<param name="rlMinPadTop" value="10mil"/>
-<param name="rlMaxPadTop" value="20mil"/>
-<param name="rlMinPadInner" value="10mil"/>
-<param name="rlMaxPadInner" value="20mil"/>
-<param name="rlMinPadBottom" value="10mil"/>
-<param name="rlMaxPadBottom" value="20mil"/>
-<param name="rlMinViaOuter" value="8mil"/>
-<param name="rlMaxViaOuter" value="20mil"/>
-<param name="rlMinViaInner" value="8mil"/>
-<param name="rlMaxViaInner" value="20mil"/>
-<param name="rlMinMicroViaOuter" value="4mil"/>
-<param name="rlMaxMicroViaOuter" value="20mil"/>
-<param name="rlMinMicroViaInner" value="4mil"/>
-<param name="rlMaxMicroViaInner" value="20mil"/>
-<param name="psTop" value="-1"/>
-<param name="psBottom" value="-1"/>
-<param name="psFirst" value="-1"/>
-<param name="psElongationLong" value="100"/>
-<param name="psElongationOffset" value="100"/>
-<param name="mvStopFrame" value="1"/>
-<param name="mvCreamFrame" value="0"/>
-<param name="mlMinStopFrame" value="4mil"/>
-<param name="mlMaxStopFrame" value="4mil"/>
-<param name="mlMinCreamFrame" value="0mil"/>
-<param name="mlMaxCreamFrame" value="0mil"/>
-<param name="mlViaStopLimit" value="0mil"/>
-<param name="srRoundness" value="0"/>
-<param name="srMinRoundness" value="0mil"/>
-<param name="srMaxRoundness" value="0mil"/>
-<param name="slThermalIsolate" value="10mil"/>
-<param name="slThermalsForVias" value="0"/>
-<param name="dpMaxLengthDifference" value="10mm"/>
-<param name="dpGapFactor" value="2.5"/>
-<param name="checkGrid" value="0"/>
-<param name="checkAngle" value="0"/>
-<param name="checkFont" value="1"/>
-<param name="checkRestrict" value="1"/>
-<param name="useDiameter" value="13"/>
-<param name="maxErrors" value="50"/>
+<param name="layerSetup" value="(1*16)" />
+<param name="mtCopper" value="0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm" />
+<param name="mtIsolate" value="1.5mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm" />
+<param name="mdWireWire" value="12mil" />
+<param name="mdWirePad" value="10mil" />
+<param name="mdWireVia" value="8mil" />
+<param name="mdPadPad" value="8mil" />
+<param name="mdPadVia" value="8mil" />
+<param name="mdViaVia" value="8mil" />
+<param name="mdSmdPad" value="8mil" />
+<param name="mdSmdVia" value="8mil" />
+<param name="mdSmdSmd" value="8mil" />
+<param name="mdViaViaSameLayer" value="8mil" />
+<param name="mnLayersViaInSmd" value="2" />
+<param name="mdCopperDimension" value="40mil" />
+<param name="mdDrill" value="8mil" />
+<param name="mdSmdStop" value="0mil" />
+<param name="msWidth" value="10mil" />
+<param name="msDrill" value="24mil" />
+<param name="msMicroVia" value="9.99mm" />
+<param name="msBlindViaRatio" value="0.5" />
+<param name="rvPadTop" value="0.25" />
+<param name="rvPadInner" value="0.25" />
+<param name="rvPadBottom" value="0.25" />
+<param name="rvViaOuter" value="0.25" />
+<param name="rvViaInner" value="0.25" />
+<param name="rvMicroViaOuter" value="0.25" />
+<param name="rvMicroViaInner" value="0.25" />
+<param name="rlMinPadTop" value="10mil" />
+<param name="rlMaxPadTop" value="20mil" />
+<param name="rlMinPadInner" value="10mil" />
+<param name="rlMaxPadInner" value="20mil" />
+<param name="rlMinPadBottom" value="10mil" />
+<param name="rlMaxPadBottom" value="20mil" />
+<param name="rlMinViaOuter" value="8mil" />
+<param name="rlMaxViaOuter" value="20mil" />
+<param name="rlMinViaInner" value="8mil" />
+<param name="rlMaxViaInner" value="20mil" />
+<param name="rlMinMicroViaOuter" value="4mil" />
+<param name="rlMaxMicroViaOuter" value="20mil" />
+<param name="rlMinMicroViaInner" value="4mil" />
+<param name="rlMaxMicroViaInner" value="20mil" />
+<param name="psTop" value="-1" />
+<param name="psBottom" value="-1" />
+<param name="psFirst" value="-1" />
+<param name="psElongationLong" value="100" />
+<param name="psElongationOffset" value="100" />
+<param name="mvStopFrame" value="1" />
+<param name="mvCreamFrame" value="0" />
+<param name="mlMinStopFrame" value="4mil" />
+<param name="mlMaxStopFrame" value="4mil" />
+<param name="mlMinCreamFrame" value="0mil" />
+<param name="mlMaxCreamFrame" value="0mil" />
+<param name="mlViaStopLimit" value="0mil" />
+<param name="srRoundness" value="0" />
+<param name="srMinRoundness" value="0mil" />
+<param name="srMaxRoundness" value="0mil" />
+<param name="slThermalIsolate" value="10mil" />
+<param name="slThermalsForVias" value="0" />
+<param name="dpMaxLengthDifference" value="10mm" />
+<param name="dpGapFactor" value="2.5" />
+<param name="checkGrid" value="0" />
+<param name="checkAngle" value="0" />
+<param name="checkFont" value="1" />
+<param name="checkRestrict" value="1" />
+<param name="useDiameter" value="13" />
+<param name="maxErrors" value="50" />
 </designrules>
 <autorouter>
 <pass name="Default">
-<param name="RoutingGrid" value="50mil"/>
-<param name="AutoGrid" value="1"/>
-<param name="Efforts" value="0"/>
-<param name="TopRouterVariant" value="1"/>
-<param name="tpViaShape" value="round"/>
-<param name="PrefDir.1" value="a"/>
-<param name="PrefDir.2" value="0"/>
-<param name="PrefDir.3" value="0"/>
-<param name="PrefDir.4" value="0"/>
-<param name="PrefDir.5" value="0"/>
-<param name="PrefDir.6" value="0"/>
-<param name="PrefDir.7" value="0"/>
-<param name="PrefDir.8" value="0"/>
-<param name="PrefDir.9" value="0"/>
-<param name="PrefDir.10" value="0"/>
-<param name="PrefDir.11" value="0"/>
-<param name="PrefDir.12" value="0"/>
-<param name="PrefDir.13" value="0"/>
-<param name="PrefDir.14" value="0"/>
-<param name="PrefDir.15" value="0"/>
-<param name="PrefDir.16" value="a"/>
-<param name="cfVia" value="8"/>
-<param name="cfNonPref" value="5"/>
-<param name="cfChangeDir" value="2"/>
-<param name="cfOrthStep" value="2"/>
-<param name="cfDiagStep" value="3"/>
-<param name="cfExtdStep" value="0"/>
-<param name="cfBonusStep" value="1"/>
-<param name="cfMalusStep" value="1"/>
-<param name="cfPadImpact" value="4"/>
-<param name="cfSmdImpact" value="4"/>
-<param name="cfBusImpact" value="0"/>
-<param name="cfHugging" value="3"/>
-<param name="cfAvoid" value="4"/>
-<param name="cfPolygon" value="10"/>
-<param name="cfBase.1" value="0"/>
-<param name="cfBase.2" value="1"/>
-<param name="cfBase.3" value="1"/>
-<param name="cfBase.4" value="1"/>
-<param name="cfBase.5" value="1"/>
-<param name="cfBase.6" value="1"/>
-<param name="cfBase.7" value="1"/>
-<param name="cfBase.8" value="1"/>
-<param name="cfBase.9" value="1"/>
-<param name="cfBase.10" value="1"/>
-<param name="cfBase.11" value="1"/>
-<param name="cfBase.12" value="1"/>
-<param name="cfBase.13" value="1"/>
-<param name="cfBase.14" value="1"/>
-<param name="cfBase.15" value="1"/>
-<param name="cfBase.16" value="0"/>
-<param name="mnVias" value="20"/>
-<param name="mnSegments" value="9999"/>
-<param name="mnExtdSteps" value="9999"/>
-<param name="mnRipupLevel" value="10"/>
-<param name="mnRipupSteps" value="100"/>
-<param name="mnRipupTotal" value="100"/>
+<param name="RoutingGrid" value="50mil" />
+<param name="AutoGrid" value="1" />
+<param name="Efforts" value="0" />
+<param name="TopRouterVariant" value="1" />
+<param name="tpViaShape" value="round" />
+<param name="PrefDir.1" value="a" />
+<param name="PrefDir.2" value="0" />
+<param name="PrefDir.3" value="0" />
+<param name="PrefDir.4" value="0" />
+<param name="PrefDir.5" value="0" />
+<param name="PrefDir.6" value="0" />
+<param name="PrefDir.7" value="0" />
+<param name="PrefDir.8" value="0" />
+<param name="PrefDir.9" value="0" />
+<param name="PrefDir.10" value="0" />
+<param name="PrefDir.11" value="0" />
+<param name="PrefDir.12" value="0" />
+<param name="PrefDir.13" value="0" />
+<param name="PrefDir.14" value="0" />
+<param name="PrefDir.15" value="0" />
+<param name="PrefDir.16" value="a" />
+<param name="cfVia" value="8" />
+<param name="cfNonPref" value="5" />
+<param name="cfChangeDir" value="2" />
+<param name="cfOrthStep" value="2" />
+<param name="cfDiagStep" value="3" />
+<param name="cfExtdStep" value="0" />
+<param name="cfBonusStep" value="1" />
+<param name="cfMalusStep" value="1" />
+<param name="cfPadImpact" value="4" />
+<param name="cfSmdImpact" value="4" />
+<param name="cfBusImpact" value="0" />
+<param name="cfHugging" value="3" />
+<param name="cfAvoid" value="4" />
+<param name="cfPolygon" value="10" />
+<param name="cfBase.1" value="0" />
+<param name="cfBase.2" value="1" />
+<param name="cfBase.3" value="1" />
+<param name="cfBase.4" value="1" />
+<param name="cfBase.5" value="1" />
+<param name="cfBase.6" value="1" />
+<param name="cfBase.7" value="1" />
+<param name="cfBase.8" value="1" />
+<param name="cfBase.9" value="1" />
+<param name="cfBase.10" value="1" />
+<param name="cfBase.11" value="1" />
+<param name="cfBase.12" value="1" />
+<param name="cfBase.13" value="1" />
+<param name="cfBase.14" value="1" />
+<param name="cfBase.15" value="1" />
+<param name="cfBase.16" value="0" />
+<param name="mnVias" value="20" />
+<param name="mnSegments" value="9999" />
+<param name="mnExtdSteps" value="9999" />
+<param name="mnRipupLevel" value="10" />
+<param name="mnRipupSteps" value="100" />
+<param name="mnRipupTotal" value="100" />
 </pass>
-<pass name="Follow-me" refer="Default" active="yes">
+<pass active="yes" name="Follow-me" refer="Default">
 </pass>
-<pass name="Busses" refer="Default" active="yes">
-<param name="cfNonPref" value="4"/>
-<param name="cfBusImpact" value="4"/>
-<param name="cfHugging" value="0"/>
-<param name="mnVias" value="0"/>
+<pass active="yes" name="Busses" refer="Default">
+<param name="cfNonPref" value="4" />
+<param name="cfBusImpact" value="4" />
+<param name="cfHugging" value="0" />
+<param name="mnVias" value="0" />
 </pass>
-<pass name="Route" refer="Default" active="yes">
+<pass active="yes" name="Route" refer="Default">
 </pass>
-<pass name="Optimize1" refer="Default" active="yes">
-<param name="cfVia" value="99"/>
-<param name="cfExtdStep" value="10"/>
-<param name="cfHugging" value="1"/>
-<param name="mnExtdSteps" value="1"/>
-<param name="mnRipupLevel" value="0"/>
+<pass active="yes" name="Optimize1" refer="Default">
+<param name="cfVia" value="99" />
+<param name="cfExtdStep" value="10" />
+<param name="cfHugging" value="1" />
+<param name="mnExtdSteps" value="1" />
+<param name="mnRipupLevel" value="0" />
 </pass>
-<pass name="Optimize2" refer="Optimize1" active="yes">
-<param name="cfNonPref" value="0"/>
-<param name="cfChangeDir" value="6"/>
-<param name="cfExtdStep" value="0"/>
-<param name="cfBonusStep" value="2"/>
-<param name="cfMalusStep" value="2"/>
-<param name="cfPadImpact" value="2"/>
-<param name="cfSmdImpact" value="2"/>
-<param name="cfHugging" value="0"/>
+<pass active="yes" name="Optimize2" refer="Optimize1">
+<param name="cfNonPref" value="0" />
+<param name="cfChangeDir" value="6" />
+<param name="cfExtdStep" value="0" />
+<param name="cfBonusStep" value="2" />
+<param name="cfMalusStep" value="2" />
+<param name="cfPadImpact" value="2" />
+<param name="cfSmdImpact" value="2" />
+<param name="cfHugging" value="0" />
 </pass>
-<pass name="Optimize3" refer="Optimize2" active="yes">
-<param name="cfChangeDir" value="8"/>
-<param name="cfPadImpact" value="0"/>
-<param name="cfSmdImpact" value="0"/>
+<pass active="yes" name="Optimize3" refer="Optimize2">
+<param name="cfChangeDir" value="8" />
+<param name="cfPadImpact" value="0" />
+<param name="cfSmdImpact" value="0" />
 </pass>
-<pass name="Optimize4" refer="Optimize3" active="yes">
-<param name="cfChangeDir" value="25"/>
+<pass active="yes" name="Optimize4" refer="Optimize3">
+<param name="cfChangeDir" value="25" />
 </pass>
 </autorouter>
 <elements>
-</elements>
+<element library="SparkFun-Connectors" name="LL63" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="3.8984" /><element library="SparkFun-Connectors" name="LL62" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="6.4384" /><element library="SparkFun-Connectors" name="LL61" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="8.9784" /><element library="SparkFun-Connectors" name="LL60" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="11.5184" /><element library="SparkFun-Connectors" name="LL59" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="14.0584" /><element library="SparkFun-Connectors" name="LL58" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="16.5984" /><element library="SparkFun-Connectors" name="LL57" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="19.1384" /><element library="SparkFun-Connectors" name="LL56" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="21.6784" /><element library="SparkFun-Connectors" name="LL55" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="24.2184" /><element library="SparkFun-Connectors" name="LL54" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="26.7584" /><element library="SparkFun-Connectors" name="LL53" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="29.2984" /><element library="SparkFun-Connectors" name="LL52" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="31.8384" /><element library="SparkFun-Connectors" name="LL51" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="34.3784" /><element library="SparkFun-Connectors" name="LL50" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="36.9184" /><element library="SparkFun-Connectors" name="LL49" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="39.4584" /><element library="SparkFun-Connectors" name="LL48" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="41.9984" /><element library="SparkFun-Connectors" name="LL47" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="44.5384" /><element library="SparkFun-Connectors" name="LL46" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="47.0784" /><element library="SparkFun-Connectors" name="LL45" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="49.6184" /><element library="SparkFun-Connectors" name="LL44" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="52.1584" /><element library="SparkFun-Connectors" name="LL43" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="54.6984" /><element library="SparkFun-Connectors" name="LL42" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="57.2384" /><element library="SparkFun-Connectors" name="LL41" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="59.7784" /><element library="SparkFun-Connectors" name="LL40" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="62.3184" /><element library="SparkFun-Connectors" name="LL39" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="64.8584" /><element library="SparkFun-Connectors" name="LL38" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="67.3984" /><element library="SparkFun-Connectors" name="LL37" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="69.9384" /><element library="SparkFun-Connectors" name="LL36" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="72.4784" /><element library="SparkFun-Connectors" name="LL35" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="75.0184" /><element library="SparkFun-Connectors" name="LL34" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="77.5584" /><element library="SparkFun-Connectors" name="LL33" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="80.0984" /><element library="SparkFun-Connectors" name="LL32" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="82.6384" /><element library="SparkFun-Connectors" name="LL31" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="85.1784" /><element library="SparkFun-Connectors" name="LL30" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="87.7184" /><element library="SparkFun-Connectors" name="LL29" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="90.2584" /><element library="SparkFun-Connectors" name="LL28" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="92.7984" /><element library="SparkFun-Connectors" name="LL27" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="95.3384" /><element library="SparkFun-Connectors" name="LL26" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="97.8784" /><element library="SparkFun-Connectors" name="LL25" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="100.4184" /><element library="SparkFun-Connectors" name="LL24" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="102.9584" /><element library="SparkFun-Connectors" name="LL23" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="105.4984" /><element library="SparkFun-Connectors" name="LL22" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="108.0384" /><element library="SparkFun-Connectors" name="LL21" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="110.5784" /><element library="SparkFun-Connectors" name="LL20" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="113.1184" /><element library="SparkFun-Connectors" name="LL19" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="115.6584" /><element library="SparkFun-Connectors" name="LL18" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="118.1984" /><element library="SparkFun-Connectors" name="LL17" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="120.7384" /><element library="SparkFun-Connectors" name="LL16" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="123.2784" /><element library="SparkFun-Connectors" name="LL15" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="125.8184" /><element library="SparkFun-Connectors" name="LL14" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="128.3584" /><element library="SparkFun-Connectors" name="LL13" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="130.8984" /><element library="SparkFun-Connectors" name="LL12" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="133.4384" /><element library="SparkFun-Connectors" name="LL11" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="135.9784" /><element library="SparkFun-Connectors" name="LL10" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="138.5184" /><element library="SparkFun-Connectors" name="LL9" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="141.0584" /><element library="SparkFun-Connectors" name="LL8" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="143.5984" /><element library="SparkFun-Connectors" name="LL7" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="146.1384" /><element library="SparkFun-Connectors" name="LL6" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="148.6784" /><element library="SparkFun-Connectors" name="LL5" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="151.2184" /><element library="SparkFun-Connectors" name="LL4" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="153.7584" /><element library="SparkFun-Connectors" name="LL3" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="156.2984" /><element library="SparkFun-Connectors" name="LL2" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="158.8384" /><element library="SparkFun-Connectors" name="LL1" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="161.3784" /><element library="SparkFun-Connectors" name="LL0" package="1X01_OVAL_PIN_AUTO" value="" x="6.8984" y="163.9184" /><element library="SparkFun-Connectors" name="RL63" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="3.8984" /><element library="SparkFun-Connectors" name="RL62" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="6.4384" /><element library="SparkFun-Connectors" name="RL61" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="8.9784" /><element library="SparkFun-Connectors" name="RL60" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="11.5184" /><element library="SparkFun-Connectors" name="RL59" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="14.0584" /><element library="SparkFun-Connectors" name="RL58" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="16.5984" /><element library="SparkFun-Connectors" name="RL57" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="19.1384" /><element library="SparkFun-Connectors" name="RL56" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="21.6784" /><element library="SparkFun-Connectors" name="RL55" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="24.2184" /><element library="SparkFun-Connectors" name="RL54" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="26.7584" /><element library="SparkFun-Connectors" name="RL53" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="29.2984" /><element library="SparkFun-Connectors" name="RL52" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="31.8384" /><element library="SparkFun-Connectors" name="RL51" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="34.3784" /><element library="SparkFun-Connectors" name="RL50" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="36.9184" /><element library="SparkFun-Connectors" name="RL49" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="39.4584" /><element library="SparkFun-Connectors" name="RL48" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="41.9984" /><element library="SparkFun-Connectors" name="RL47" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="44.5384" /><element library="SparkFun-Connectors" name="RL46" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="47.0784" /><element library="SparkFun-Connectors" name="RL45" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="49.6184" /><element library="SparkFun-Connectors" name="RL44" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="52.1584" /><element library="SparkFun-Connectors" name="RL43" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="54.6984" /><element library="SparkFun-Connectors" name="RL42" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="57.2384" /><element library="SparkFun-Connectors" name="RL41" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="59.7784" /><element library="SparkFun-Connectors" name="RL40" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="62.3184" /><element library="SparkFun-Connectors" name="RL39" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="64.8584" /><element library="SparkFun-Connectors" name="RL38" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="67.3984" /><element library="SparkFun-Connectors" name="RL37" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="69.9384" /><element library="SparkFun-Connectors" name="RL36" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="72.4784" /><element library="SparkFun-Connectors" name="RL35" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="75.0184" /><element library="SparkFun-Connectors" name="RL34" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="77.5584" /><element library="SparkFun-Connectors" name="RL33" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="80.0984" /><element library="SparkFun-Connectors" name="RL32" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="82.6384" /><element library="SparkFun-Connectors" name="RL31" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="85.1784" /><element library="SparkFun-Connectors" name="RL30" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="87.7184" /><element library="SparkFun-Connectors" name="RL29" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="90.2584" /><element library="SparkFun-Connectors" name="RL28" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="92.7984" /><element library="SparkFun-Connectors" name="RL27" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="95.3384" /><element library="SparkFun-Connectors" name="RL26" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="97.8784" /><element library="SparkFun-Connectors" name="RL25" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="100.4184" /><element library="SparkFun-Connectors" name="RL24" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="102.9584" /><element library="SparkFun-Connectors" name="RL23" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="105.4984" /><element library="SparkFun-Connectors" name="RL22" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="108.0384" /><element library="SparkFun-Connectors" name="RL21" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="110.5784" /><element library="SparkFun-Connectors" name="RL20" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="113.1184" /><element library="SparkFun-Connectors" name="RL19" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="115.6584" /><element library="SparkFun-Connectors" name="RL18" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="118.1984" /><element library="SparkFun-Connectors" name="RL17" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="120.7384" /><element library="SparkFun-Connectors" name="RL16" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="123.2784" /><element library="SparkFun-Connectors" name="RL15" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="125.8184" /><element library="SparkFun-Connectors" name="RL14" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="128.3584" /><element library="SparkFun-Connectors" name="RL13" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="130.8984" /><element library="SparkFun-Connectors" name="RL12" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="133.4384" /><element library="SparkFun-Connectors" name="RL11" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="135.9784" /><element library="SparkFun-Connectors" name="RL10" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="138.5184" /><element library="SparkFun-Connectors" name="RL9" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="141.0584" /><element library="SparkFun-Connectors" name="RL8" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="143.5984" /><element library="SparkFun-Connectors" name="RL7" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="146.1384" /><element library="SparkFun-Connectors" name="RL6" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="148.6784" /><element library="SparkFun-Connectors" name="RL5" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="151.2184" /><element library="SparkFun-Connectors" name="RL4" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="153.7584" /><element library="SparkFun-Connectors" name="RL3" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="156.2984" /><element library="SparkFun-Connectors" name="RL2" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="158.8384" /><element library="SparkFun-Connectors" name="RL1" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="161.3784" /><element library="SparkFun-Connectors" name="RL0" package="1X01_OVAL_PIN_AUTO" value="" x="24.78" y="163.9184" /><element library="SparkFun-Connectors" name="RS22" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="11.094" /><element library="SparkFun-Connectors" name="LS22" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="11.094" /><element library="SparkFun-Connectors" name="RS23" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="8.554" /><element library="SparkFun-Connectors" name="LS23" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="8.554" /><element library="SparkFun-Connectors" name="RS20" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="24.644" /><element library="SparkFun-Connectors" name="LS20" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="24.644" /><element library="SparkFun-Connectors" name="RS21" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="22.104" /><element library="SparkFun-Connectors" name="LS21" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="22.104" /><element library="SparkFun-Connectors" name="RS18" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="38.194" /><element library="SparkFun-Connectors" name="LS18" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="38.194" /><element library="SparkFun-Connectors" name="RS19" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="35.654" /><element library="SparkFun-Connectors" name="LS19" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="35.654" /><element library="SparkFun-Connectors" name="RS16" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="51.744" /><element library="SparkFun-Connectors" name="LS16" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="51.744" /><element library="SparkFun-Connectors" name="RS17" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="49.204" /><element library="SparkFun-Connectors" name="LS17" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="49.204" /><element library="SparkFun-Connectors" name="RS14" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="65.294" /><element library="SparkFun-Connectors" name="LS14" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="65.294" /><element library="SparkFun-Connectors" name="RS15" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="62.754" /><element library="SparkFun-Connectors" name="LS15" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="62.754" /><element library="SparkFun-Connectors" name="RS12" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="78.844" /><element library="SparkFun-Connectors" name="LS12" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="78.844" /><element library="SparkFun-Connectors" name="RS13" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="76.304" /><element library="SparkFun-Connectors" name="LS13" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="76.304" /><element library="SparkFun-Connectors" name="RS10" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="92.394" /><element library="SparkFun-Connectors" name="LS10" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="92.394" /><element library="SparkFun-Connectors" name="RS11" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="89.854" /><element library="SparkFun-Connectors" name="LS11" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="89.854" /><element library="SparkFun-Connectors" name="RS8" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="105.944" /><element library="SparkFun-Connectors" name="LS8" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="105.944" /><element library="SparkFun-Connectors" name="RS9" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="103.404" /><element library="SparkFun-Connectors" name="LS9" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="103.404" /><element library="SparkFun-Connectors" name="RS6" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="119.494" /><element library="SparkFun-Connectors" name="LS6" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="119.494" /><element library="SparkFun-Connectors" name="RS7" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="116.954" /><element library="SparkFun-Connectors" name="LS7" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="116.954" /><element library="SparkFun-Connectors" name="RS4" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="133.044" /><element library="SparkFun-Connectors" name="LS4" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="133.044" /><element library="SparkFun-Connectors" name="RS5" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="130.504" /><element library="SparkFun-Connectors" name="LS5" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="130.504" /><element library="SparkFun-Connectors" name="RS2" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="146.594" /><element library="SparkFun-Connectors" name="LS2" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="146.594" /><element library="SparkFun-Connectors" name="RS3" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="144.054" /><element library="SparkFun-Connectors" name="LS3" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="144.054" /><element library="SparkFun-Connectors" name="RS0" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="160.144" /><element library="SparkFun-Connectors" name="LS0" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="160.144" /><element library="SparkFun-Connectors" name="RS1" package="1X01_OVAL_PIN_AUTO" value="" x="17.69" y="157.604" /><element library="SparkFun-Connectors" name="LS1" package="1X01_OVAL_PIN_AUTO" value="" x="13.88" y="157.604" /></elements>
 <signals>
 </signals>
 </board>
